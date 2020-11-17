@@ -1,8 +1,8 @@
 <%= stylesheet_link_tag 'style.css' %>
-
+<h1>Edit Article: <%=@article.name%></h1>
 <%= form_for(:article) do |f| %>
 
-<p>
+<div>
     <% if @article.errors.any? %>
         <ul>
             <% @article.errors.full_messages.each do |message| %>
@@ -12,24 +12,24 @@
             <% end %>
         </ul>
     <% end %>
-</p>
+</div>
 
-<p>
+<div>
     <%= f.label :name %>
     <%= f.text_field :name , value: @article.name %>
-</p>
+</div>
 
-<p>
+<div>
     <%= f.label :body %>
     <%= f.text_area :body , value: @article.body %>
-</p>
+</div>
 
-<p>
+<div class="form-submit">
     <%= hidden_field_tag(:id, @article.id) %>
     <%= f.submit 'Update', formaction: update_article_path%>
-    <%= f.submit 'Delete', formaction: delete_article_path%>
-</p>
+    <%= f.submit 'Delete', formaction: delete_article_path, data: { confirm: 'Are you sure you want to delete this article?' }%>
+</div>
 
 <% end %>
 
-<%= link_to 'Back to Articles', articles_path%>
+<%= link_to 'Back to Articles', articles_path, class: "btn-link-to"%>

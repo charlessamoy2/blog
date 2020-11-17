@@ -1,6 +1,8 @@
 <%= stylesheet_link_tag 'style.css' %>
 
-<h1><%= @article.name%></h1>
-<h2><%= @article.body%></h2>
+<div class="show-div">
+    <h1><%= @article.name%></h1>
+    <p><%= @article.body%></p>
+</div>
 
-<%= link_to 'Back to Articles', articles_path%>
+<%= link_to 'Back to Articles', articles_path, class: "btn-link-to"%>

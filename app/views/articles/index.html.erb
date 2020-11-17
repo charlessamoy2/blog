@@ -1,13 +1,13 @@
 <%= stylesheet_link_tag 'style.css' %>
-
+<h1> Charles' Articles </h1>
 <table>
     <thead>
         <tr>
             <th>ID</th>
             <th>Title</th>
             <th>Body</th>
-            <th>Show</th>
-            <th>Edit</th>
+            <th class="table-btns">Show</th>
+            <th class="table-btns">Edit</th>
         </tr>
     </thead>
 
@@ -17,8 +17,8 @@
                 <td><%= article.id%></td>
                 <td><%= article.name%></td>
                 <td><%= article.body%></td>
-                <td><%= link_to 'Show', show_article_path(:id => article.id)%>
-                <td><%= link_to 'Edit', edit_article_path(:id => article.id), class: "btn-edit" %></td>
+                <td><%= link_to 'Show', show_article_path(:id => article.id)%></td>
+                <td><%= link_to 'Edit', edit_article_path(:id => article.id)%></td>
             </tr>
         <% end %>
     </tbody>
