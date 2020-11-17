@@ -1,0 +1,30 @@
+html {
+    padding: 30px 0px;
+}
+
+table {
+    width: 800px;
+    height: fit-content;
+    overflow-y: auto;
+    margin: auto;
+    border-collapse: collapse
+}
+
+table, th, td {
+    border: 1px solid black
+}
+
+td {
+    text-align: center;
+}
+
+.btn-edit {
+    
+}
+
+.btn-link-to {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}

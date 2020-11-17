@@ -1,4 +1,6 @@
-<%= form_with scope: :article, url: update_article_path, local: true do |f| %>
+<%= stylesheet_link_tag 'style.css' %>
+
+<%= form_for(:article) do |f| %>
 
 <p>
     <% if @article.errors.any? %>
@@ -14,17 +16,18 @@
 
 <p>
     <%= f.label :name %>
-    <%= f.text_field :name , placeholder: @article.name %>
+    <%= f.text_field :name , value: @article.name %>
 </p>
 
 <p>
     <%= f.label :body %>
-    <%= f.text_area :body , placeholder: @article.body %>
+    <%= f.text_area :body , value: @article.body %>
 </p>
 
 <p>
-    <%= hidden_field_tag(:id , @article.id) %>
-    <%= f.submit %>
+    <%= hidden_field_tag(:id, @article.id) %>
+    <%= f.submit 'Update', formaction: update_article_path%>
+    <%= f.submit 'Delete', formaction: delete_article_path%>
 </p>
 
 <% end %>

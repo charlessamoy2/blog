@@ -1,10 +1,12 @@
 class ArticlesController < ApplicationController
+    skip_before_action :verify_authenticity_token
+
     def index
         @articles = Article.all
     end
 
     def show
-
+        @article = Article.find(params[:id])
     end
 
     def new
@@ -37,7 +39,13 @@ class ArticlesController < ApplicationController
     end
 
     def delete
-    
+        @article = Article.find(params[:id])
+
+        if @article.destroy
+            redirect_to articles_path
+        else
+            render :edit
+        end
     end
 
     private
